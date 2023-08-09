@@ -1328,6 +1328,11 @@ body {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+:is(.dark .dark\:hover\:text-dark:hover) {
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:hover\:text-primary:hover) {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity));
