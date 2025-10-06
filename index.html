@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,29 +7,27 @@
     <title>Ilham Arifin - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./dist/output.css" rel="stylesheet" />
-    <script>
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+    <style>
+      /* Smooth transitions for dark mode */
+      * {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease,
+          border-color 0.3s ease;
       }
-    </script>
+    </style>
   </head>
-  <body>
+  <body class="bg-white dark:bg-dark">
     <!-- header start -->
     <header
       class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
     >
-      <div class="container">
+      <div class="container text-slate-800 dark:text-white">
         <div class="flex items-center justify-between relative md:h-20 lg:h-20">
           <div class="py-4">
             <a
               href="#home"
-              class="font-bold text-xl text-dark block py-6 transition duration-200 hover:text-primary lg:text-2xl dark:text-white dark:hover:text-primary"
+              class="font-bold text-xl text-slate-800 block py-6 transition duration-200 hover:text-primary lg:text-2xl dark:text-white dark:hover:text-primary"
               >Ilham Arifin</a
             >
           </div>
@@ -53,7 +51,7 @@
 
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-16 lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:dark:bg-transparent dark:bg-dark dark:shadow-slate-500"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-16 lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent"
             >
               <ul class="block lg:flex">
                 <li class="group">
@@ -99,10 +97,13 @@
                   >
                 </li>
                 <li class="flex items-center pl-8 mt-3 lg:mt-0">
-                  <div class="flex">
-                    <span class="mr-2 text-sm text-slate-500">light</span>
+                  <div class="flex items-center">
+                    <span
+                      class="mr-2 text-sm text-slate-500 dark:text-slate-400"
+                      >light</span
+                    >
                     <input type="checkbox" class="hidden" id="dark-toggle" />
-                    <label for="dark-toggle">
+                    <label for="dark-toggle" class="cursor-pointer">
                       <div
                         class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
                       >
@@ -111,7 +112,10 @@
                         ></div>
                       </div>
                     </label>
-                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                    <span
+                      class="ml-2 text-sm text-slate-500 dark:text-slate-400"
+                      >dark</span
+                    >
                   </div>
                 </li>
               </ul>
@@ -131,23 +135,28 @@
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Halo Semua👋, saya
               <span
-                class="block font-bold text-dark text-4xl mt-1 lg:text-5xl dark:text-white"
+                class="block font-bold text-slate-800 text-4xl mt-1 lg:text-5xl dark:text-white"
                 >Ilham Arifin</span
               >
             </h1>
-            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-xl">
-              student &
-              <span class="text-secondary">content creator</span>
+            <h2
+              class="font-medium text-secondary text-lg mb-5 lg:text-2xl dark:text-slate-300"
+            >
+              Student &
+              <span class="text-primary">Content Creator</span>
             </h2>
-            <p class="font-medium text-secondary mb-10 leading-relaxed">
-              belajar web programing itu mudah dan menyenangkan bukan?
-              <span class="text-dark dark:text-white font-bold">bukan!</span>
+            <p
+              class="font-medium text-secondary mb-10 leading-relaxed dark:text-slate-400"
+            >
+              Belajar web programming itu mudah dan menyenangkan bukan?
+              <span class="text-dark dark:text-white font-bold">Bukan!</span>
+              Tapi dengan ketekunan dan praktik terus-menerus, semuanya akan
+              menjadi mungkin.
             </p>
 
             <a
-              href="https://web.whatsapp.com/"
-              target="_blank"
-              class="text-base font-semibold text-white bg-primary py-3 px-7 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
+              href="#contact"
+              class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
               >Hubungi Saya</a
             >
           </div>
@@ -157,36 +166,25 @@
               <img
                 src="./dist/img/pasfoto1.png"
                 alt="IlhamArifin"
-                class="relative z-10 max-w-full mx-auto rounded-full shadow-xl"
+                class="relative z-10 max-w-full mx-auto rounded-full shadow-xl dark:shadow-slate-700"
               />
-              <span
-                class="absolute -bottom-0 top-0.5 left-1/2 -translate-x-1/2 md:scale-125"
+              <div
+                class="absolute -bottom-0 -top-4 left-1/2 -translate-x-1/2 md:scale-125"
               >
-                <!-- <svg
+                <svg
                   width="400"
                   height="400"
                   viewBox="0 0 200 200"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="opacity-70 dark:opacity-50"
                 >
                   <path
                     fill="#eab308"
                     d="M37.6,-45.9C48.9,-35.2,58.5,-23.6,62.2,-9.9C66,3.9,63.9,19.8,57.8,36.2C51.7,52.5,41.5,69.3,27.7,73.1C13.8,77,-3.8,67.8,-16.3,57.6C-28.7,47.5,-36.1,36.3,-42.5,24.8C-48.9,13.3,-54.2,1.4,-53.5,-10.7C-52.9,-22.8,-46.4,-35.2,-36.5,-46.1C-26.6,-57,-13.3,-66.4,-0.1,-66.3C13.1,-66.2,26.2,-56.5,37.6,-45.9Z"
                     transform="translate(100 100) scale(1)"
                   />
-                </svg> -->
-                <!-- <svg
-                  width="400"
-                  height="400"
-                  viewBox="0 0 200 200"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#EAB308"
-                    d="M50.2,-43.1C57,-31.5,48.8,-11.1,42.8,7.5C36.7,26.2,32.8,43,20.4,53.3C7.9,63.5,-13,67,-26,58.9C-39,50.8,-44,31,-49.9,10C-55.8,-11,-62.6,-33.2,-54.4,-45.1C-46.2,-57,-23.1,-58.7,-0.7,-58.1C21.7,-57.5,43.4,-54.7,50.2,-43.1Z"
-                    transform="translate(100 100) scale(1.1)"
-                  />
-                </svg> -->
-              </span>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -205,16 +203,19 @@
               Tentang Saya
             </h4>
             <h2
-              class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl dark:text-white"
+              class="font-bold text-slate-800 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white"
             >
               Hai👋, perkenalkan saya Ilham Arifin
             </h2>
-            <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
-              Lulusan SMK jurusan Teknik Komputer dan jaringan dan bersemangat
-              dalam bidang teknologi informasi, khususnya dalam pemprograman.
+            <p
+              class="font-medium text-base text-secondary max-w-xl lg:text-lg dark:text-slate-300"
+            >
+              Lulusan SMK jurusan Teknik Komputer dan Jaringan yang bersemangat
+              dalam bidang teknologi informasi, khususnya dalam pemrograman.
               Memiliki pengalaman sebagai operator komputer saat PKL, dengan
-              keahlian dalam perakitan komputer. Memiliki dedikasi tinggi dalam
-              mengembangkan keterampilan di dunia teknologi informasi.
+              keahlian dalam perakitan komputer dan troubleshooting hardware.
+              Memiliki dedikasi tinggi dalam mengembangkan keterampilan di dunia
+              teknologi informasi dan selalu ingin belajar hal-hal baru.
             </p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
@@ -223,9 +224,11 @@
             >
               Mari Berteman
             </h3>
-            <p class="font-medium text-base text-secondary mb-6 lg:text-lg">
-              saya sedang menggunakan berbagai media sosial, mari berteman
-              dengan klik salah satu logo media sosial ini:
+            <p
+              class="font-medium text-base text-secondary mb-6 lg:text-lg dark:text-slate-300"
+            >
+              Saya aktif menggunakan berbagai media sosial, mari berteman dengan
+              mengklik salah satu logo media sosial berikut:
             </p>
 
             <!-- icons -->
@@ -234,11 +237,13 @@
               <a
                 href="https://youtube.com/@ilhamarifin5567"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+                class="w-12 h-12 mr-4 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white transition duration-300"
+                title="YouTube"
               >
                 <svg
                   role="img"
-                  width="20"
+                  width="24"
+                  height="24"
                   class="fill-current"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -254,11 +259,13 @@
               <a
                 href="https://instagram.com/_arifinn08"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+                class="w-12 h-12 mr-4 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white transition duration-300"
+                title="Instagram"
               >
                 <svg
                   role="img"
-                  width="20"
+                  width="24"
+                  height="24"
                   class="fill-current"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -269,73 +276,18 @@
                   />
                 </svg>
               </a>
-              <!-- facebook -->
-              <!-- <a
-                href="https://facebook.com/profile.php?id=100028712284116"
-                target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
-              >
-                <svg
-                  role="img"
-                  width="20"
-                  class="fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Facebook</title>
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a> -->
 
-              <!-- twitter -->
-              <!-- <a
-                href="https://twitter.com"
-                target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <svg
-                  role="img"
-                  width="20"
-                  class="fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Twitter</title>
-                  <path
-                    d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"
-                  />
-                </svg>
-              </a> -->
-              <!-- tiktok -->
-              <!-- <a
-                href="https://tiktok.com/@useref9edsbzmk?_t=8eA31RtPGa2&_r=1"
-                target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
-              >
-                <svg
-                  role="img"
-                  width="20"
-                  class="fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>TikTok</title>
-                  <path
-                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-                  />
-                </svg>
-              </a> -->
               <!-- github -->
               <a
                 href="https://github.com/IlhamArifinnn"
                 target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+                class="w-12 h-12 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white transition duration-300"
+                title="GitHub"
               >
                 <svg
                   role="img"
-                  width="20"
+                  width="24"
+                  height="24"
                   class="fill-current"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -354,118 +306,153 @@
     <!-- about section end -->
 
     <!-- portfolio start -->
-    <section id="portfolio" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-700">
+    <section id="portfolio" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
+              class="font-bold text-slate-800 text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Project saya
+              Project Saya
             </h2>
             <p
               class="font-medium text-md text-secondary md:text-lg dark:text-slate-300"
             >
-              Saya masih pemula. Berikut ini adalah project yang telah saya
-              kerjakan walaupun hanya hasil tiruan dari berbagai sumber dan web
-              ini juga belum interaktif.
+              Sebagai seorang pemula yang terus belajar, berikut adalah beberapa
+              project yang telah saya kerjakan. Meskipun beberapa merupakan
+              hasil belajar dari berbagai sumber, setiap project memberikan
+              pengalaman berharga dalam pengembangan web.
             </p>
           </div>
         </div>
 
         <div class="w-full px-4 flex flex-wrap justify-center">
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
+          <div class="mb-12 p-4 md:w-1/2 lg:w-1/3">
+            <div
+              class="bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
+            >
               <img
                 src="./dist/img/4.png"
-                alt="portfolio-bootstrap"
-                width="w-full"
+                alt="Portfolio Bootstrap"
+                class="w-full h-48 object-cover"
               />
+              <div class="p-6">
+                <h3
+                  class="font-semibold text-xl text-dark mb-3 dark:text-white"
+                >
+                  Portfolio Bootstrap
+                </h3>
+                <p
+                  class="font-medium text-base text-secondary mb-4 dark:text-slate-300"
+                >
+                  Portfolio pertama saya yang dibuat menggunakan framework
+                  Bootstrap. Mengimplementasikan responsive design dan komponen
+                  Bootstrap untuk tampilan yang modern.
+                </p>
+                <a
+                  href="https://portfolio.ilhamarifnn.repl.co"
+                  target="_blank"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
+                  >Kunjungi Web</a
+                >
+              </div>
             </div>
-            <h3
-              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
-            >
-              Portfolio IlhamArifin
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Portfolio ini dibuat menggunakan salah satu framework CSS yang
-              digunakan khusus untuk suatu pengembangan front-end website.
-            </p>
-            <br />
-            <a
-              href="https://portfolio.ilhamarifnn.repl.co"
-              target="_blank"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
-              >Kunjungi web</a
-            >
           </div>
 
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img src="./dist/img/1.png" alt="warkopsenja" width="w-full" />
+          <div class="mb-12 p-4 md:w-1/2 lg:w-1/3">
+            <div
+              class="bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
+            >
+              <img
+                src="./dist/img/1.png"
+                alt="Warkop Senja"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3
+                  class="font-semibold text-xl text-dark mb-3 dark:text-white"
+                >
+                  Warkop Senja
+                </h3>
+                <p
+                  class="font-medium text-base text-secondary mb-4 dark:text-slate-300"
+                >
+                  Website kopi sederhana dengan tema warm dan cozy. Dibuat
+                  menggunakan HTML, CSS, dan JavaScript murni dengan inspirasi
+                  dari berbagai tutorial.
+                </p>
+                <a
+                  href="https://warkop-senja.ilhamarifnn.repl.co"
+                  target="_blank"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
+                  >Kunjungi Web</a
+                >
+              </div>
             </div>
-            <h3
-              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
-            >
-              Warkop Senja IlhamArifin
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Website warkop ini dibuat menggunakan HTML, CSS dan JS dari
-              channel WPU.
-            </p>
-            <br />
-            <a
-              href="https://warkop-senja.ilhamarifnn.repl.co"
-              target="_blank"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
-              >Kunjungi web</a
-            >
           </div>
 
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img src="./dist/img/2.png" alt="jamOnline" width="w-full" />
+          <div class="mb-12 p-4 md:w-1/2 lg:w-1/3">
+            <div
+              class="bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
+            >
+              <img
+                src="./dist/img/2.png"
+                alt="Jam Online"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3
+                  class="font-semibold text-xl text-dark mb-3 dark:text-white"
+                >
+                  Jam Online
+                </h3>
+                <p
+                  class="font-medium text-base text-secondary mb-4 dark:text-slate-300"
+                >
+                  Aplikasi jam digital real-time dengan tampilan yang elegan.
+                  Dibuat menggunakan JavaScript untuk menampilkan waktu secara
+                  live dengan update setiap detik.
+                </p>
+                <a
+                  href="https://clock.ilhamarifnn.repl.co"
+                  target="_blank"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
+                  >Kunjungi Web</a
+                >
+              </div>
             </div>
-            <h3
-              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
-            >
-              Jam Online IlhamArifin
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Jam sederhana yang dibuat menggunakan HTML, CSS, dan JS untuk
-              tampilan desktop karena saya belum manambahkan responsive media
-              lain.
-            </p>
-            <br />
-            <a
-              href="https://clock.ilhamarifnn.repl.co"
-              target="_blank"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
-              >Kunjungi web</a
-            >
           </div>
 
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img src="./dist/img/3.png" alt="formLogin" width="w-full" />
+          <div class="mb-12 p-4 md:w-1/2 lg:w-1/3">
+            <div
+              class="bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
+            >
+              <img
+                src="./dist/img/3.png"
+                alt="Form Login"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3
+                  class="font-semibold text-xl text-dark mb-3 dark:text-white"
+                >
+                  Form Login
+                </h3>
+                <p
+                  class="font-medium text-base text-secondary mb-4 dark:text-slate-300"
+                >
+                  Interface form login dengan validasi dasar. Fokus pada user
+                  experience dan tampilan visual yang clean dan professional.
+                </p>
+                <a
+                  href="https://formlogin.ilhamarifnn.repl.co"
+                  target="_blank"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
+                  >Kunjungi Web</a
+                >
+              </div>
             </div>
-            <h3
-              class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white"
-            >
-              Form Login IlhamArifin
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Form login ini masih banyak kurangnya. jadi untuk tampilan mobile
-              belum diperbaiki.
-            </p>
-            <br />
-            <a
-              href="https://formlogin.ilhamarifnn.repl.co"
-              target="_blank"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
-              >Kunjungi web</a
-            >
           </div>
         </div>
       </div>
@@ -473,7 +460,7 @@
     <!-- portfolio end -->
 
     <!-- clients section start -->
-    <section id="clients" class="pt-36 pb-32 bg-slate-800 dark:bg-slate-300">
+    <section id="clients" class="pt-36 pb-32 bg-slate-800 dark:bg-slate-200">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto text-center mb-16">
@@ -481,11 +468,15 @@
             <h2
               class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-4xl dark:text-dark"
             >
-              Yang Pernah Bekerjasama
+              Perusahaan Terkenal
             </h2>
-            <p class="font-medium text-md text-secondary md:text-base">
-              Berikut E-Commerce yang pernah memakai jasa kami, becanda guys:v.
-              Semoga aja
+            <p
+              class="font-medium text-md text-slate-300 md:text-base dark:text-slate-600"
+            >
+              Berikut adalah beberapa perusahaan teknologi terkemuka yang
+              menginspirasi saya dalam perjalanan belajar pemrograman. Semoga
+              suatu hari bisa berkontribusi di perusahaan-perusahaan hebat
+              seperti ini!
             </p>
           </div>
         </div>
@@ -497,7 +488,11 @@
               target="_blank"
               class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
             >
-              <img src="./dist/img/clients/google.png" alt="google" />
+              <img
+                src="./dist/img/clients/google.png"
+                alt="Google"
+                class="dark:invert"
+              />
             </a>
             <a
               href="https://shopee.co.id"
@@ -506,31 +501,42 @@
             >
               <img
                 src="./dist/img/clients/shopee.png"
-                alt="shopee"
-                width="50"
+                alt="Shopee"
+                class="dark:invert"
               />
             </a>
-
             <a
               href="https://www.tokopedia.com"
               target="_blank"
               class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
             >
-              <img src="./dist/img/clients/Tokopedia.png" alt="Tokopedia" />
+              <img
+                src="./dist/img/clients/Tokopedia.png"
+                alt="Tokopedia"
+                class="dark:invert"
+              />
             </a>
             <a
               href="https://www.gojek.com"
               target="_blank"
               class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
             >
-              <img src="./dist/img/clients/gojek.png" alt="gojek" />
+              <img
+                src="./dist/img/clients/gojek.png"
+                alt="Gojek"
+                class="dark:invert"
+              />
             </a>
             <a
               href="https://www.grab.com"
               target="_blank"
               class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
             >
-              <img src="./dist/img/clients/grab1.png" alt="grab" />
+              <img
+                src="./dist/img/clients/grab1.png"
+                alt="Grab"
+                class="dark:invert"
+              />
             </a>
           </div>
         </div>
@@ -539,18 +545,21 @@
     <!-- clients section end -->
 
     <!-- blog section start -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
+              class="font-bold text-slate-800 text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
               Tulisan Terkini
             </h2>
-            <p class="font-medium text-md text-secondary md:text-lg">
-              Beberapa blog yang berkaitan dengan pemrograman komputer
+            <p
+              class="font-medium text-md text-secondary md:text-lg dark:text-slate-300"
+            >
+              Beberapa artikel menarik seputar pemrograman dan teknologi yang
+              bisa menambah wawasan dan inspirasi dalam belajar.
             </p>
           </div>
         </div>
@@ -558,32 +567,34 @@
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
             <div
-              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
             >
               <img
                 src="./dist/img/blog/pemrograman.jpg"
-                alt="programing"
-                class="w-full"
+                alt="Pemrograman"
+                class="w-full h-48 object-cover"
               />
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="https://id.wikipedia.org/wiki/Pemrograman"
                     target="_blank"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
-                    >Seputar Pemrograman</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary dark:text-white dark:hover:text-primary transition duration-300"
+                    >Mengenal Dunia Pemrograman</a
                   >
                 </h3>
-                <p class="font-medium text-base text-secondary mb-6">
-                  Mengapa Kita Perlu Belajar Pemrograman? Pemrograman atau
-                  penataolahan adalah proses menulis, menguji dan memperbaiki
-                  (debug), dan memelihara kode yang membangun suatu program
-                  komputer.
+                <p
+                  class="font-medium text-base text-secondary mb-6 dark:text-slate-300"
+                >
+                  Pemrograman adalah proses menulis, menguji, dan memperbaiki
+                  kode yang membangun suatu program komputer. Dalam era digital
+                  seperti sekarang, kemampuan pemrograman menjadi salah satu
+                  skill yang sangat berharga.
                 </p>
                 <a
                   href="https://id.wikipedia.org/wiki/Pemrograman"
                   target="_blank"
-                  class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
                   >Baca Selengkapnya</a
                 >
               </div>
@@ -592,32 +603,34 @@
 
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
             <div
-              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
             >
               <img
                 src="./dist/img/blog/seputar.jpg"
-                alt="programing"
-                class="w-full"
+                alt="Tips Belajar"
+                class="w-full h-48 object-cover"
               />
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="https://www.niagahoster.co.id/blog/belajar-pemrograman/"
                     target="_blank"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
-                    >Tips Belajar</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary dark:text-white dark:hover:text-primary transition duration-300"
+                    >Tips Belajar Pemrograman</a
                   >
                 </h3>
-                <p class="font-medium text-base text-secondary mb-6">
-                  Benarkah belajar pemrograman itu sulit? Memang sih untuk
-                  menguasainya tak akan semudah membalik telapak tangan. Tapi,
-                  asalkan mengikuti panduan yang benar dan rajin praktik, mahir
-                  di bidang pemrograman itu bukan mustahil kok.
+                <p
+                  class="font-medium text-base text-secondary mb-6 dark:text-slate-300"
+                >
+                  Belajar pemrograman memang tidak mudah, tetapi dengan strategi
+                  yang tepat dan konsistensi, siapa pun bisa menguasainya.
+                  Mulailah dengan dasar-dasar, praktik secara teratur, dan
+                  jangan takut membuat kesalahan.
                 </p>
                 <a
                   href="https://www.niagahoster.co.id/blog/belajar-pemrograman/"
                   target="_blank"
-                  class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
                   >Baca Selengkapnya</a
                 >
               </div>
@@ -626,33 +639,34 @@
 
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
             <div
-              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 transition duration-300 hover:shadow-xl dark:bg-slate-700 dark:shadow-slate-900"
             >
               <img
                 src="./dist/img/blog/persiapan.jpg"
-                alt="Coffee"
-                class="w-full"
+                alt="Bahasa Pemrograman"
+                class="w-full h-48 object-cover"
               />
               <div class="py-8 px-6">
                 <h3>
                   <a
                     href="https://id.wikipedia.org/wiki/Bahasa_pemrograman"
                     target="_blank"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
-                    >Bahasa Pemrograman</a
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary dark:text-white dark:hover:text-primary transition duration-300"
+                    >Beragam Bahasa Pemrograman</a
                   >
                 </h3>
-                <p class="font-medium text-base text-secondary mb-6">
-                  Bahasa pemrograman adalah sebuah instruksi standar untuk
-                  memerintah komputer agar menjalankan fungsi tertentu. Bahasa
-                  pemrograman ini merupakan suatu himpunan dari aturan sintaksis
-                  dan semantik yang dipakai untuk mendefenisikan tata olah atau
-                  program.
+                <p
+                  class="font-medium text-base text-secondary mb-6 dark:text-slate-300"
+                >
+                  Bahasa pemrograman adalah alat untuk berkomunikasi dengan
+                  komputer. Setiap bahasa memiliki kelebihan dan kekurangan
+                  masing-masing. Pilihan bahasa biasanya disesuaikan dengan
+                  tujuan pengembangan dan platform yang ditargetkan.
                 </p>
                 <a
                   href="https://id.wikipedia.org/wiki/Bahasa_pemrograman"
                   target="_blank"
-                  class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80"
+                  class="inline-block font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 transition duration-300"
                   >Baca Selengkapnya</a
                 >
               </div>
@@ -670,54 +684,68 @@
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
+              class="font-bold text-slate-800 text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Hubungi Kami
+              Hubungi Saya
             </h2>
-            <p class="font-medium text-md text-secondary md:text-lg">
-              Jika ada kritik atau saran, silahkan tinggalkan pesan.
+            <p
+              class="font-medium text-md text-secondary md:text-lg dark:text-slate-300"
+            >
+              Jika Anda memiliki pertanyaan, kritik, saran, atau ingin
+              berkolaborasi, silakan tinggalkan pesan melalui form berikut.
             </p>
           </div>
         </div>
         <!-- form -->
-        <form>
+        <form id="contact-form">
           <div class="w-full lg:w-2/3 lg:mx-auto">
             <div class="w-full px-4 mb-8">
-              <label for="name" class="text-base font-bold text-primary"
+              <label
+                for="name"
+                class="text-base font-bold text-primary dark:text-yellow-400"
                 >Nama</label
               >
               <input
                 type="text"
                 id="name"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-slate-600 dark:text-white dark:focus:ring-yellow-400 transition duration-300"
+                placeholder="Masukkan nama lengkap"
+                required
               />
             </div>
             <div class="w-full px-4 mb-8">
-              <label for="email" class="text-base font-bold text-primary"
+              <label
+                for="email"
+                class="text-base font-bold text-primary dark:text-yellow-400"
                 >Email</label
               >
               <input
                 type="email"
                 id="email"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-slate-600 dark:text-white dark:focus:ring-yellow-400 transition duration-300"
+                placeholder="Masukkan alamat email"
+                required
               />
             </div>
             <div class="w-full px-4 mb-8">
-              <label for="message" class="text-base font-bold text-primary"
+              <label
+                for="message"
+                class="text-base font-bold text-primary dark:text-yellow-400"
                 >Pesan</label
               >
               <textarea
-                type="email"
                 id="message"
-                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary dark:bg-slate-600 dark:text-white dark:focus:ring-yellow-400 transition duration-300 h-32"
+                placeholder="Tulis pesan Anda di sini..."
+                required
               ></textarea>
             </div>
             <div class="w-full px-4">
               <button
-                onclick="alert('Terimakasih telah memberikan saya kritik/saran')"
-                class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-300"
+                type="submit"
+                class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-300 dark:bg-yellow-500 dark:hover:bg-yellow-600"
               >
-                Kirim
+                Kirim Pesan
               </button>
             </div>
           </div>
@@ -727,34 +755,41 @@
     <!-- contact section end -->
 
     <!-- footer start -->
-    <footer class="bg-dark pt-24 pb-12">
+    <footer class="bg-dark pt-24 pb-12 dark:bg-slate-900">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
-            <h2 class="font-bold text-4xl text-white mb-5">IPIN</h2>
-            <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
-            <p>ilhamarifinhrp@gmail.com</p>
-            <p>Depok, Jawa Barat, Indonesia</p>
+          <div
+            class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3 dark:text-slate-400"
+          >
+            <h2 class="font-bold text-4xl text-white mb-5 dark:text-yellow-400">
+              IPIN
+            </h2>
+            <h3 class="font-bold text-2xl mb-2 text-white dark:text-slate-200">
+              Hubungi Saya
+            </h3>
+            <p>📧 ilhamarifinhrp@gmail.com</p>
+            <p>📍 Depok, Jawa Barat, Indonesia</p>
           </div>
           <div class="w-full px-4 mb-12 md:w-1/3">
-            <h3 class="font-semibold text-xl text-white mb-5">
+            <h3
+              class="font-semibold text-xl text-white mb-5 dark:text-slate-200"
+            >
               Kategori Tulisan
             </h3>
-            <ul class="text-slate-300">
+            <ul class="text-slate-300 dark:text-slate-400">
               <li>
                 <a
                   href="https://id.wikipedia.org/wiki/Aplikasi"
                   target="_blank"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Aplikasi</a
                 >
               </li>
-
               <li>
                 <a
                   href="https://id.wikipedia.org/wiki/Perangkat_keras"
                   target="_blank"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Hardware</a
                 >
               </li>
@@ -762,7 +797,7 @@
                 <a
                   href="https://id.wikipedia.org/wiki/Teknologi"
                   target="_blank"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Teknologi</a
                 >
               </li>
@@ -770,7 +805,7 @@
                 <a
                   href="https://id.wikipedia.org/wiki/Gaya_hidup"
                   target="_blank"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Gaya Hidup</a
                 >
               </li>
@@ -778,54 +813,58 @@
                 <a
                   href="https://id.wikipedia.org/wiki/Pemrograman"
                   target="_blank"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Pemrograman</a
                 >
               </li>
             </ul>
           </div>
           <div class="w-full px-4 mb-12 md:w-1/3">
-            <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
-            <ul class="text-slate-300">
+            <h3
+              class="font-semibold text-xl text-white mb-5 dark:text-slate-200"
+            >
+              Tautan
+            </h3>
+            <ul class="text-slate-300 dark:text-slate-400">
               <li>
                 <a
                   href="#home"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Beranda</a
                 >
               </li>
               <li>
                 <a
                   href="#about"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Tentang Saya</a
                 >
               </li>
               <li>
                 <a
                   href="#portfolio"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Portfolio</a
                 >
               </li>
               <li>
                 <a
                   href="#clients"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Clients</a
                 >
               </li>
               <li>
                 <a
                   href="#blog"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Blog</a
                 >
               </li>
               <li>
                 <a
                   href="#contact"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="inline-block text-base hover:text-primary mb-3 transition duration-300 dark:hover:text-yellow-400"
                   >Contact</a
                 >
               </li>
@@ -834,13 +873,16 @@
         </div>
 
         <!-- copyright -->
-        <div class="w-full pt-10 border-t border-slate-700">
+        <div
+          class="w-full pt-10 border-t border-slate-700 dark:border-slate-600"
+        >
           <div class="flex items-center justify-center mb-5">
             <!-- youtube -->
             <a
               href="https://youtube.com/@ilhamarifin5567"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-dark transition duration-300"
+              title="YouTube"
             >
               <svg
                 role="img"
@@ -860,7 +902,8 @@
             <a
               href="https://instagram.com/_arifinn08"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-dark transition duration-300"
+              title="Instagram"
             >
               <svg
                 role="img"
@@ -875,69 +918,13 @@
                 />
               </svg>
             </a>
-            <!-- facebook -->
-            <!-- <a
-              href="https://facebook.com/profile.php?id=100028712284116"
-              target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
-            >
-              <svg
-                role="img"
-                width="20"
-                class="fill-current"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Facebook</title>
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                />
-              </svg>
-            </a> -->
 
-            <!-- twitter -->
-            <!-- <a
-              href="https://twitter.com"
-              target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-            >
-              <svg
-                role="img"
-                width="20"
-                class="fill-current"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Twitter</title>
-                <path
-                  d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"
-                />
-              </svg>
-            </a> -->
-            <!-- tiktok -->
-            <!-- <a
-              href="https://tiktok.com/@useref9edsbzmk?_t=8eA31RtPGa2&_r=1"
-              target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
-            >
-              <svg
-                role="img"
-                width="20"
-                class="fill-current"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>TikTok</title>
-                <path
-                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-                />
-              </svg>
-            </a> -->
             <!-- github -->
             <a
               href="https://github.com/IlhamArifinnn"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:text-white dark:hover:text-dark"
+              class="w-9 h-9 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:border-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-dark transition duration-300"
+              title="GitHub"
             >
               <svg
                 role="img"
@@ -954,21 +941,21 @@
             </a>
           </div>
 
-          <p class="font-medium text-xs text-slate-500 text-center">
-            Dibuat oleh
+          <p
+            class="font-medium text-xs text-slate-500 text-center dark:text-slate-400"
+          >
+            Dibuat dengan ❤️ oleh
             <a
-              href="https://web.whatsapp.com/"
-              target="_blank"
-              class="font-bold text-primary"
-              >Ilham Arifin,</a
-            >
-            menggunakan
+              href="#home"
+              class="font-bold text-primary dark:text-yellow-400 hover:underline"
+              >Ilham Arifin</a
+            >, menggunakan
             <a
               href="https://tailwindcss.com"
               target="_blank"
-              class="font-bold text-sky-500"
-              >Tailwind CSS.</a
-            >
+              class="font-bold text-sky-500 dark:text-sky-400 hover:underline"
+              >Tailwind CSS</a
+            >.
           </p>
         </div>
       </div>
@@ -978,9 +965,11 @@
     <!-- back to top start -->
     <a
       href="#home"
-      class="fixed justify-center items-center bottom-4 right-4 z-[9999] h-14 w-14 hidden rounded-full bg-primary p-4 hover:animate-pulse"
+      class="fixed justify-center items-center bottom-4 right-4 z-[9999] h-14 w-14 hidden rounded-full bg-primary p-4 hover:animate-pulse transition duration-300 dark:bg-yellow-500"
       id="to-top"
-      ><span class="mt-2 block h-4 w-4 rotate-45 border-t-2 border-l-2"></span
+      ><span
+        class="mt-2 block h-4 w-4 rotate-45 border-t-2 border-l-2 border-white"
+      ></span
     ></a>
     <!-- back to top end -->
 
