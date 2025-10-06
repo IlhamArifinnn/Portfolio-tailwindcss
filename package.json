@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i src/input.css -o dist/output.css --watch",
-    "build": "tailwindcss -i src/input.css -o dist/output.css --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.4.17"
   }
 }

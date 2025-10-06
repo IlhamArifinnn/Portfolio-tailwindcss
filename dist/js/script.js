@@ -6,12 +6,16 @@ window.onscroll = function () {
 
   if (window.pageYOffset > fixedNav) {
     header.classList.add("navbar-fixed");
-    toTop.classList.remove("hidden");
-    toTop.classList.add("flex");
+    if (toTop) {
+      toTop.classList.remove("hidden");
+      toTop.classList.add("flex");
+    }
   } else {
     header.classList.remove("navbar-fixed");
-    toTop.classList.remove("flex");
-    toTop.classList.add("hidden");
+    if (toTop) {
+      toTop.classList.remove("flex");
+      toTop.classList.add("hidden");
+    }
   }
 };
 
@@ -27,7 +31,12 @@ if (hamburger && navMenu) {
 
   // klik diluar hamburger
   window.addEventListener("click", function (e) {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+    if (
+      e.target !== hamburger &&
+      !hamburger.contains(e.target) &&
+      e.target !== navMenu &&
+      !navMenu.contains(e.target)
+    ) {
       hamburger.classList.remove("hamburger-active");
       navMenu.classList.add("hidden");
     }
@@ -38,7 +47,6 @@ if (hamburger && navMenu) {
 const darkToggle = document.querySelector("#dark-toggle");
 const html = document.querySelector("html");
 
-// Fungsi untuk mengatur tema
 function setTheme(isDark) {
   if (isDark) {
     html.classList.add("dark");
@@ -51,7 +59,6 @@ function setTheme(isDark) {
   }
 }
 
-// Inisialisasi tema saat halaman dimuat
 function initTheme() {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const storedTheme = localStorage.theme;
@@ -63,24 +70,22 @@ function initTheme() {
   }
 }
 
-// Event listener untuk toggle dark mode
 if (darkToggle) {
   darkToggle.addEventListener("change", function () {
     setTheme(this.checked);
   });
 }
 
-// Panggil inisialisasi saat DOM siap
+// Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
   initTheme();
 
-  // Form contact handler
+  // Contact form handler
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Validasi sederhana
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
@@ -96,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Smooth scroll untuk navigasi
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -107,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
           block: "start",
         });
 
-        // Tutup menu mobile setelah klik
+        // Close mobile menu
         if (hamburger && navMenu) {
           hamburger.classList.remove("hamburger-active");
           navMenu.classList.add("hidden");
@@ -117,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Handle system theme changes
+// System theme change listener
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", (e) => {

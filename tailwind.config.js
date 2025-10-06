@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{html,js}", "./dist/**/*.{html,js}"],
+  content: ["./*.html", "./dist/**/*.{html,js}"],
   darkMode: "class",
   theme: {
     container: {
@@ -9,15 +9,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#eab308", // yellow-500
-        secondary: "#64748b", // slate-500
-        dark: "#0f172a", // slate-900
+        primary: "#eab308",
+        secondary: "#64748b",
+        dark: "#0f172a",
       },
       screens: {
         "2xl": "1320px",
-      },
-      animation: {
-        "pulse-slow": "pulse 3s linear infinite",
       },
     },
   },
